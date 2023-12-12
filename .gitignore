@@ -1,0 +1,5 @@
+/vendor
+/.idea
+/.vs-code
+/node_modules
+/storage/translations
