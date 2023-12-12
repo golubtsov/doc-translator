@@ -4,10 +4,8 @@ namespace Nigo\Translator\XML;
 
 use XMLWriter;
 
-class XMLBook
+class FB2BookStr
 {
-    protected XMLWriter $xm;
-
     private string $authorFirstName;
 
     private string $authorLastName;
@@ -18,12 +16,7 @@ class XMLBook
 
     private string $title;
 
-    protected array $attributes = [];
-
-    public function __construct()
-    {
-        $this->xm = new XMLWriter();
-    }
+    private string $text = '';
 
     public function setTitle(string $title): static
     {
@@ -47,6 +40,20 @@ class XMLBook
     public function setAnnotation(string $annotation): static
     {
         $this->annotation = $annotation;
+        return $this;
+    }
+
+    public function addSection(string $text, string $title = ''): static
+    {
+        $this->text .= '<section>';
+
+        if (!empty($title)) {
+            $this->text .= "<title><p><strong>$title</strong></p></title>";
+        }
+
+        $this->text .= "<p>$text</p>";
+        $this->text .= '</section>';
+
         return $this;
     }
 
@@ -97,7 +104,7 @@ class XMLBook
 
     protected function createAnnotationAttribute(): string
     {
-        return "<annotation>{$this->annotation}</annotation>";
+        return "<annotation><p>{$this->annotation}</p></annotation>";
     }
 
     protected function createLangAttribute(): string
@@ -114,7 +121,6 @@ class XMLBook
 
     protected function createPublishInfoAttribute(): string
     {
-
         $publishInfo = $this->title;
 
         return "<publish-info><book-name>$publishInfo</book-name></publish-info>";
@@ -122,6 +128,6 @@ class XMLBook
 
     protected function createBookBody(): string
     {
-        return "<body></body>";
+        return "<body>{$this->text}</body>";
     }
 }
