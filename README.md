@@ -15,6 +15,9 @@ $generator = new Fb2ParallelDocumentGenerator('lang', 'path_to_save');
 $generator->generateByFile('file_for_translate');
 ```
 
+## Перевод
+![Текст описания](./doc/images/translated_text.png)
+
 Метод принимает путь до файла для перевода и возвращет ``false``,
 если файл не создался, или размер созданного файла.
 
@@ -88,6 +91,3 @@ public function setLogStateForTranslator(bool $state): void
 ```
 
 Тестовые тексты для перевода берутся из ``./storage/test_doc/``. One_Day-Helen_Naylor.txt большой текст и text/txt маленький
-
-## Перевод
-![Текст описания](./doc/images/translated_text.png)
