@@ -1,5 +1,5 @@
 {
-  "name": "nigo/translator",
+  "name": "nigo/fb2-parallel-translator",
   "type": "library",
   "license": "MIT",
   "autoload": {
