@@ -2,6 +2,7 @@
 
 namespace Nigo\Translator\Document;
 
+use Nigo\Fb2Book\Fb2Book;
 use Nigo\Translator\Translator\LibreTranslator;
 use Nigo\Translator\Translator\TranslatorAbstract;
 
@@ -17,11 +18,14 @@ class Fb2ParallelDocumentGenerator
 
     private TranslatorAbstract $translator;
 
+    private Fb2Book $book;
+
     public function __construct(string $lang, string $path)
     {
         $this->lang = $lang;
         $this->path = $path;
         $this->translator = new LibreTranslator(true);
+        $this->book = new Fb2Book();
     }
 
     public function generateByFile(string $path): bool|int
@@ -88,19 +92,8 @@ class Fb2ParallelDocumentGenerator
 
     private function markup(string $filename): string
     {
-        return "<?xml version='1.0' encoding='utf-8'?>
-       <FictionBook xmlns='http://www.gribuser.ru/xml/fictionbook/2.0' xmlns:l='http://www.w3.org/1999/xlink'>
-            <description>
-                <title-info>
-                    <book-title>$filename</book-title>
-                </title-info>
-                <publish-info>
-                    <book-name>$filename</book-name>
-                </publish-info>   
-            </description>
-            <body>
-                <section>{$this->translatedText}</section>
-            </body>
-       </FictionBook>";
+        return $this->book->setTitle($filename)
+            ->addSection($this->translatedText)
+            ->create();
     }
 }

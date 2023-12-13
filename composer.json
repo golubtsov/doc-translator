@@ -17,7 +17,6 @@
     "php": ">=8",
     "larapack/dd": "^1.1",
     "ext-curl": "*",
-    "ext-xmlwriter": "*",
-    "ext-simplexml": "*"
+    "nigo/fb2-book": "dev-master"
   }
 }
