@@ -28,13 +28,22 @@ class Fb2ParallelDocumentGenerator
         $this->book = new Fb2Book();
     }
 
-    public function generateByFile(string $path): bool|int
+    public function generateByFile(string $pathToFile, string $filename): bool|int
     {
-        $this->text = $this->getDataFromFile($path);
+        $this->text = $this->clearText(file_get_contents($pathToFile));
 
         $this->splitByParagraphs();
 
-        return $this->save($path);
+        return $this->save($filename);
+    }
+
+    public function generate(string $text, string $filename): bool|int
+    {
+        $this->text = $this->clearText($text);
+
+        $this->splitByParagraphs();
+
+        return $this->save($filename);
     }
 
     public function setLogStateForTranslator(bool $state): void
@@ -76,18 +85,14 @@ class Fb2ParallelDocumentGenerator
         return $translatedSentences;
     }
 
-    private function save(string $path): bool|int
+    private function save(string $filename): bool|int
     {
-        $explodePath = explode('/', $path);
-
-        $filename = explode('.', $explodePath[count($explodePath) - 1])[0];
-
         return file_put_contents($this->path . '/' . $filename . '_Translate.fb2', $this->markup($filename));
     }
 
-    private function getDataFromFile(string $filename): string
+    private function clearText(string $text): string
     {
-        return trim(preg_replace("/(\R\s*){2,}/", PHP_EOL, file_get_contents($filename)));
+        return trim(preg_replace("/(\R\s*){2,}/", PHP_EOL, $text));
     }
 
     private function markup(string $filename): string
