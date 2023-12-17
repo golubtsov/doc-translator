@@ -1,5 +1,9 @@
 # Параллельный переводчик FB2-формат
 
+```
+composer require nigo/fb2-parallel-translator
+```
+
 ## Класс ``Fb2ParallelDocumentGenerator``
 
 ```php

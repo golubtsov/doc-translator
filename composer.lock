@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0bbb4e23df445408706bf2ea392a455e",
+    "content-hash": "5ce195e7e02be600588980e337c6ed95",
     "packages": [
         {
             "name": "larapack/dd",
@@ -48,7 +48,7 @@
         },
         {
             "name": "nigo/fb2-book",
-            "version": "dev-master",
+            "version": "0.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/golubtsov/fb2-book.git",
@@ -64,7 +64,6 @@
                 "larapack/dd": "^1.1",
                 "php": ">=8"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -83,7 +82,7 @@
             ],
             "support": {
                 "issues": "https://github.com/golubtsov/fb2-book/issues",
-                "source": "https://github.com/golubtsov/fb2-book/tree/master"
+                "source": "https://github.com/golubtsov/fb2-book/tree/0.0.1"
             },
             "time": "2023-12-13T07:40:22+00:00"
         },
@@ -326,9 +325,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "nigo/fb2-book": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
