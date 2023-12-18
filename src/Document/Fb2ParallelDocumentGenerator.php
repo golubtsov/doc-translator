@@ -24,7 +24,7 @@ class Fb2ParallelDocumentGenerator
     {
         $this->lang = $lang;
         $this->path = $path;
-        $this->translator = new LibreTranslator(true);
+        $this->translator = new LibreTranslator();
         $this->book = new Fb2Book();
     }
 
