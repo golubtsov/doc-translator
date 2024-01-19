@@ -17,6 +17,7 @@ abstract class TranslatorAbstract
     public function __construct(bool $logState = false)
     {
         $this->logState = $logState;
+        $this->uri = $_ENV['API_TRANSLATOR'];
     }
 
     public function setLogState(bool $state): void
@@ -43,5 +44,10 @@ abstract class TranslatorAbstract
         fwrite($file, date('d.m.Y h:i:s') . "\r" . $response . PHP_EOL);
 
         fclose($file);
+    }
+
+    public function setUri(string $uri): void
+    {
+        $this->uri = $uri;
     }
 }

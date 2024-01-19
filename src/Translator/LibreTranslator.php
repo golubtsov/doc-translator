@@ -6,7 +6,7 @@ class LibreTranslator extends TranslatorAbstract
 {
     protected string $translatedTextKey = 'translatedText';
 
-    protected string $uri = 'http://localhost:5000/translate';
+    protected string $uri = '';
 
     /**
      * @throws \Exception

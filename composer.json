@@ -17,6 +17,7 @@
     "php": ">=8",
     "larapack/dd": "^1.1",
     "ext-curl": "*",
-    "nigo/fb2-book": "0.0.1"
+    "nigo/fb2-book": "0.0.1",
+    "symfony/dotenv": "^6.4"
   }
 }
