@@ -1,6 +1,7 @@
 {
-  "name": "nigo/fb2-parallel-translator",
-  "type": "library",
+  "name": "nigo/doc-translator",
+  "description": "Пакет для создания документов с переводом",
+  "type": "package",
   "license": "MIT",
   "autoload": {
     "psr-4": {
