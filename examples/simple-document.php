@@ -2,15 +2,15 @@
 
 require_once 'vendor/autoload.php';
 
-use Nigo\Translator\Document\Fb2ParallelDocumentGenerator;
+use Nigo\Translator\Document\SimpleDocument;
 use Symfony\Component\Dotenv\Dotenv;
 
 $env = new Dotenv();
 $env->load(__DIR__ . '/../.env');
 
-$generator = new Fb2ParallelDocumentGenerator('ru', __DIR__ . '/../storage/translations');
+$document = new SimpleDocument('ru', __DIR__ . '/../storage/translations');
 
-if ($generator->generateByFile(__DIR__ . '/../storage/test_doc/text.txt', 'fb2-by-file') !== false) {
+if ($document->generateByFile(__DIR__ . '/../storage/test_doc/text.txt', 'simple-doc') !== false) {
     echo 'Перевод завершен' . PHP_EOL;
 } else {
     echo 'Произошла ошибка' . PHP_EOL;

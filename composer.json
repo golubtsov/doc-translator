@@ -1,6 +1,7 @@
 {
-  "name": "nigo/fb2-parallel-translator",
-  "type": "library",
+  "name": "nigo/doc-translator",
+  "description": "Пакет для создания документов с переводом",
+  "type": "package",
   "license": "MIT",
   "autoload": {
     "psr-4": {
@@ -17,6 +18,7 @@
     "php": ">=8",
     "larapack/dd": "^1.1",
     "ext-curl": "*",
-    "nigo/fb2-book": "0.0.1"
+    "nigo/fb2-book": "0.0.1",
+    "symfony/dotenv": "^6.4"
   }
 }

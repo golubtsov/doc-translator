@@ -2,3 +2,4 @@
 /.idea
 /.vs-code
 /node_modules
+.env
