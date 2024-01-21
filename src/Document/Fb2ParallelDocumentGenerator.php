@@ -66,6 +66,6 @@ class Fb2ParallelDocumentGenerator extends DocumentGenerator
 
     protected function save(string $filename): bool|int
     {
-        return file_put_contents($this->path . '/' . $filename . '_Translate.fb2', $this->markup($filename));
+        return file_put_contents($this->path . '/' . $filename . ' Translate.fb2', $this->markup($filename));
     }
 }
