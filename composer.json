@@ -10,8 +10,8 @@
   },
   "authors": [
     {
-      "name": "nikita",
-      "email": "nproger781@gmail.com"
+      "name": "Nikita Golubtsov",
+      "url": "https://github.com/golubtsov/doc-translator"
     }
   ],
   "require": {
