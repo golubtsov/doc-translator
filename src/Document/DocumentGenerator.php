@@ -6,8 +6,6 @@ use Nigo\Translator\Translator\TranslatorAbstract;
 
 abstract class DocumentGenerator
 {
-    protected string $lang;
-
     protected string $path;
 
     protected string $text;
@@ -15,6 +13,11 @@ abstract class DocumentGenerator
     protected string $translatedText = '';
 
     protected TranslatorAbstract $translator;
+
+    public function setUriForTranslator(string $uri): void
+    {
+        $this->translator->setUri($uri);
+    }
 
     public function generateByFile(string $pathToFile, string $filename): bool|int
     {

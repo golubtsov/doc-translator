@@ -17,7 +17,7 @@ abstract class TranslatorAbstract
     public function __construct(bool $logState = false)
     {
         $this->logState = $logState;
-        $this->uri = $_ENV['API_TRANSLATOR'];
+        $this->uri = $_ENV['API_TRANSLATOR'] ?? '';
     }
 
     public function setLogState(bool $state): void

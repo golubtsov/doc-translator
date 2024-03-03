@@ -3,11 +3,14 @@
 namespace Nigo\Translator\Document;
 
 use Nigo\Fb2Book\Fb2Book;
+use Nigo\Translator\Document\Traits\LanguageForTranslateTrait;
 use Nigo\Translator\Translator\LibreTranslator;
 use Nigo\Translator\Translator\TranslatorAbstract;
 
 class Fb2ParallelDocumentGenerator extends DocumentGenerator
 {
+    use LanguageForTranslateTrait;
+
     private Fb2Book $book;
 
     public function __construct(string $lang, string $path)
@@ -45,7 +48,7 @@ class Fb2ParallelDocumentGenerator extends DocumentGenerator
 
         foreach ($sentences as $index => $sentence) {
             try {
-                $translatedSentences .= "<strong>$sentence</strong> ({$this->translator->translate($sentence, $this->lang)})";
+                $translatedSentences .= "<strong>$sentence</strong> <emphasis>({$this->translator->translate($sentence, $this->lang)})</emphasis>";
             } catch (\Exception $exception) {
                 echo $exception->getMessage();
                 die();
@@ -66,6 +69,6 @@ class Fb2ParallelDocumentGenerator extends DocumentGenerator
 
     protected function save(string $filename): bool|int
     {
-        return file_put_contents($this->path . '/' . $filename . ' Translate.fb2', $this->markup($filename));
+        return file_put_contents($this->path . '/' . $filename . '.fb2', $this->markup($filename));
     }
 }

@@ -2,10 +2,13 @@
 
 namespace Nigo\Translator\Document;
 
+use Nigo\Translator\Document\Traits\LanguageForTranslateTrait;
 use Nigo\Translator\Translator\LibreTranslator;
 
-class SimpleDocument extends DocumentGenerator
+class TXTParallelDocument extends DocumentGenerator
 {
+    use LanguageForTranslateTrait;
+
     public function __construct(string $lang, string $path)
     {
         $this->lang = $lang;
