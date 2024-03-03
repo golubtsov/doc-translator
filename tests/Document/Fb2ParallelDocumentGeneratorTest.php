@@ -1,6 +1,6 @@
 <?php
 
-namespace Document;
+namespace Nigo\Translator\Test\Document;
 
 use PHPUnit\Framework\TestCase;
 use Nigo\Translator\Document\Fb2ParallelDocumentGenerator;
